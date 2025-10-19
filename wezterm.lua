@@ -23,7 +23,7 @@ config.line_height = 1.1
 config.cell_width = 1.0
 config.harfbuzz_features = { "calt=0", "liga=0" }
 
--- Window configuration
+-- Window Appearance
 config.window_background_opacity = 0.85
 config.window_decorations = "RESIZE"
 
@@ -33,6 +33,7 @@ config.window_padding = {
 	top = 5,
 	bottom = 0,
 }
+
 
 -- Tab bar
 config.enable_tab_bar = true
@@ -45,20 +46,35 @@ config.default_cursor_style = 'SteadyBlock'
 config.cursor_blink_rate = 800
 
 -- Keys
-config.keys = {
-	-- Split pane keybindings using the same key with different modifiers
-	-- This is a common pattern in terminal multiplexers
-	{
-		key = 'd',
-		mods = 'CTRL|SHIFT',
-		action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
-	},
-	{
-		key = 'd',
-		mods = 'CTRL|ALT',
-		action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
-	},
+
+config.leader = {
+	key = 'a',
+	mods = 'CTRL',
+	timeout_miliseconds = 1000
 }
 
--- and finally, return the configuration to wezterm
+config.keys = {
+	--splitting	
+	{
+		mods = "LEADER",
+		key = "-",
+		action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' }
+	},
+	{
+		mods = "LEADER",
+		key = "=",
+		action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' }
+	},
+	{
+		mods = "LEADER",
+		key = "m",
+		action = wezterm.action.TogglePaneZoomState
+	},
+	{ key = "h", mods = "CTRL", action = wezterm.action.ActivatePaneDirection("Left") },
+	{ key = "l", mods = "CTRL", action = wezterm.action.ActivatePaneDirection("Right") },
+	{ key = "k", mods = "CTRL", action = wezterm.action.ActivatePaneDirection("Up") },
+	{ key = "j", mods = "CTRL", action = wezterm.action.ActivatePaneDirection("Down") },
+}
+
+
 return config
