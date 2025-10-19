@@ -47,16 +47,18 @@ config.cursor_blink_rate = 800
 
 -- Keys
 config.leader = { key = 'a', mods = 'CTRL', timeout_miliseconds = 1000 }
+
 config.keys = {
 	-- Splitting
 	{ mods = "LEADER", key = "-",       action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' }, },
 	{ mods = "LEADER", key = "=",       action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' }, },
 	{ mods = "LEADER", key = "m",       action = wezterm.action.TogglePaneZoomState, },
+
 	-- Navigate between panes
-	{ key = "h",       mods = "CTRL",   action = wezterm.action.ActivatePaneDirection "Left" },
-	{ key = "l",       mods = "CTRL",   action = wezterm.action.ActivatePaneDirection "Right" },
-	{ key = "k",       mods = "CTRL",   action = wezterm.action.ActivatePaneDirection "Up" },
-	{ key = "j",       mods = "CTRL",   action = wezterm.action.ActivatePaneDirection "Down" },
+	{ key = "h",       mods = "ALT",    action = wezterm.action.ActivatePaneDirection "Left" },
+	{ key = "l",       mods = "ALT",    action = wezterm.action.ActivatePaneDirection "Right" },
+	{ key = "k",       mods = "ALT",    action = wezterm.action.ActivatePaneDirection "Up" },
+	{ key = "j",       mods = "ALT",    action = wezterm.action.ActivatePaneDirection "Down" },
 
 	-- Resize panes
 	{ key = "H",       mods = "LEADER", action = wezterm.action.AdjustPaneSize { "Left", 5 } },
