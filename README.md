@@ -46,6 +46,8 @@ sudo pacman -S wezterm
 git clone https://github.com/hoapham1404/wezterm.git ~/.config/wezterm
 ```
 
+> **Note**: If you want to customize this configuration for yourself, consider forking this repository first and then cloning your fork.
+
 ### 3. Restart WezTerm
 
 Close and reopen WezTerm to apply the configuration.
@@ -82,10 +84,7 @@ WezTerm comes with many built-in color schemes. Some popular options:
 - `Gruvbox`
 - `One Dark`
 
-To preview available color schemes, run:
-```bash
-wezterm show-keys
-```
+To see available color schemes, visit the [WezTerm Color Schemes Gallery](https://wezfurlong.org/wezterm/colorschemes/index.html).
 
 ## Structure
 

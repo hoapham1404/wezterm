@@ -41,8 +41,8 @@ config.cursor_blink_rate = 800
 
 -- Keys
 config.keys = {
-  -- Add custom keybindings here
-  -- Example: Split panes
+  -- Split pane keybindings using the same key with different modifiers
+  -- This is a common pattern in terminal multiplexers
   {
     key = 'd',
     mods = 'CTRL|SHIFT',
