@@ -46,35 +46,22 @@ config.default_cursor_style = 'SteadyBlock'
 config.cursor_blink_rate = 800
 
 -- Keys
-
-config.leader = {
-	key = 'a',
-	mods = 'CTRL',
-	timeout_miliseconds = 1000
-}
-
+config.leader = { key = 'a', mods = 'CTRL', timeout_miliseconds = 1000 }
 config.keys = {
-	--splitting	
-	{
-		mods = "LEADER",
-		key = "-",
-		action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' }
-	},
-	{
-		mods = "LEADER",
-		key = "=",
-		action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' }
-	},
-	{
-		mods = "LEADER",
-		key = "m",
-		action = wezterm.action.TogglePaneZoomState
-	},
-	{ key = "h", mods = "CTRL", action = wezterm.action.ActivatePaneDirection("Left") },
-	{ key = "l", mods = "CTRL", action = wezterm.action.ActivatePaneDirection("Right") },
-	{ key = "k", mods = "CTRL", action = wezterm.action.ActivatePaneDirection("Up") },
-	{ key = "j", mods = "CTRL", action = wezterm.action.ActivatePaneDirection("Down") },
+	-- Splitting
+	{ mods = "LEADER", key = "-",       action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' }, },
+	{ mods = "LEADER", key = "=",       action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' }, },
+	{ mods = "LEADER", key = "m",       action = wezterm.action.TogglePaneZoomState, },
+	-- Navigate between panes
+	{ key = "h",       mods = "CTRL",   action = wezterm.action.ActivatePaneDirection "Left" },
+	{ key = "l",       mods = "CTRL",   action = wezterm.action.ActivatePaneDirection "Right" },
+	{ key = "k",       mods = "CTRL",   action = wezterm.action.ActivatePaneDirection "Up" },
+	{ key = "j",       mods = "CTRL",   action = wezterm.action.ActivatePaneDirection "Down" },
+
+	-- Resize panes
+	{ key = "H",       mods = "LEADER", action = wezterm.action.AdjustPaneSize { "Left", 5 } },
+	{ key = "L",       mods = "LEADER", action = wezterm.action.AdjustPaneSize { "Right", 5 } },
+	{ key = "K",       mods = "LEADER", action = wezterm.action.AdjustPaneSize { "Up", 2 } },
+	{ key = "J",       mods = "LEADER", action = wezterm.action.AdjustPaneSize { "Down", 2 } },
 }
-
-
 return config
